@@ -1,0 +1,483 @@
+@mixin keyframes($name) {
+  @-moz-keyframes #{$name} {
+      @content
+  }
+
+  @-webkit-keyframes #{$name} {
+      @content
+  }
+
+  @-o-keyframes #{$name} {
+      @content
+  }
+
+  @keyframes #{$name} {
+      @content
+  }
+
+  @-ms-keyframes #{$name} {
+      @content
+  }
+}
+
+@include keyframes(rotate) {
+  0%, 100% {
+     transform: rotate(0deg);
+  }
+  100% {
+     transform: rotate(360deg);
+  }
+}
+
+.t-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  font-size: 100%;
+  list-style: none;
+}
+.t-widget {
+  font-size: 100%;
+  border-width: 1px;
+  border-style: solid;
+}
+.t-link {
+  cursor: pointer;
+  outline: 0;
+}
+.t-grid-header span.t-link {
+  cursor: default;
+}
+/* Grid */
+.t-grid {
+  position: relative;
+  zoom: 1;
+  table {
+    width: 100%;
+    border-collapse: separate;
+    empty-cells: show;
+    border: 0;
+  }
+  .t-state-hover {
+    cursor: pointer;
+  }
+  td {
+    padding: 0.25em 0.6em;
+    border-style: solid;
+    border-width: 0;
+    border-left-width: 1px;
+    vertical-align: middle;
+    line-height: 1.6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.t-grid-header .t-header {
+  text-align: left;
+  padding: 0.3em 0.6em;
+  border-width: 0 0 1px 1px;
+  border-style: solid;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  .t-link {
+    line-height: 18px;
+    /* due to sorting icons*/
+    height: 18px;
+    display: block;
+    margin: -.3em -.6em;
+    padding: 0.3em 2.4em 0.3em 0.6em;
+    border: 0;
+  }
+  .t-icon {
+    position: static;
+  }
+}
+.t-grid-header-wrap,
+.t-grid-footer-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  zoom: 1;
+  border-style: solid;
+  border-width: 0 1px 0 0;
+}
+.t-grid-header,
+.t-grid-footer {
+  padding-right: 17px;
+  /* width of scrollbar. may vary across operating systems. can be calculated. */
+  zoom: 1;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+.t-grid-header .t-header {
+  border-bottom-width: 0;
+}
+.t-grid-content {
+  position: relative;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-y: scroll;
+  width: 100%;
+  zoom: 1;
+}
+.t-grid-header table,
+.t-grid-content table,
+.t-grid-footer table {
+  table-layout: fixed;
+}
+* html .t-grid-header table,
+* html .t-grid-content table {
+  width: auto;
+}
+*+html .t-grid-header table,
+*+html .t-grid-content table {
+  width: auto;
+}
+.t-grid-header .t-header:first-child,
+.t-grid tbody td:first-child,
+.t-grid tfoot td:first-child {
+  border-left-width: 0;
+}
+/* Grid ::paging */
+.t-grid-pager {
+  padding: 0.2em 0.6em;
+  line-height: 1.8em;
+  overflow: auto;
+  border-width: 1px 0 0;
+  border-style: solid;
+}
+.t-grid-pager:first-child,
+.t-grouping-header+.t-grid-toolbar {
+  border-width: 0 0 1px;
+}
+* html .t-grid .t-grid-pager {
+  border-width: 1px 0;
+}
+.t-grid .t-pager,
+.t-grid .t-status,
+.t-grid .t-status-text,
+.t-pager .t-numeric,
+.t-pager .t-link,
+.t-pager span,
+.t-pager input,
+.t-pager .t-page-size {
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+}
+.t-pager .t-page-size {
+  line-height: 1.2em;
+}
+.t-grid-footer {
+  border-style: solid;
+  border-width: 1px 0 0;
+  td {
+    border-top-width: 0;
+  }
+}
+.t-grid {
+  .t-status {
+    float: left;
+    margin: -.2em 0.6em -.2em -.6em;
+    padding: 0.2em 0.6em;
+    height: 1.85em;
+    border-right-width: 1px;
+    border-right-style: solid;
+  }
+  .t-pager {
+    float: left;
+    cursor: default;
+  }
+  .t-status-text {
+    float: right;
+    margin-right: 0.2em;
+  }
+}
+.t-pager {
+  .t-link {
+    text-decoration: none;
+    padding: 1px;
+    margin-top: 0.2em;
+    border-width: 0;
+    line-height: 16px;
+  }
+  .t-state-active,
+  .t-state-hover {
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+  span,
+  .t-link {
+    vertical-align: top;
+  }
+  .t-numeric {
+    margin: 0 7px;
+    vertical-align: top;
+    .t-link,
+    .t-state-active {
+      margin-top: 0;
+      padding: 0 5px;
+      line-height: 22px;
+      vertical-align: top;
+    }
+    .t-state-active,
+    .t-state-hover {
+      padding: 0 4px;
+      line-height: 20px;
+    }
+
+    .t-link{
+      color:#000;
+    }
+  }
+}
+.t-grid-pager .t-status .t-icon {
+  vertical-align: top;
+  margin-top: 3px;
+}
+.t-grid-header-wrap,
+.t-grid-footer-wrap {
+  border-color: #989898;
+}
+.t-grid td {
+  border-color: #ddd;
+}
+.t-alt {
+  background-color: #f7f7f7;
+}
+.t-state-active {
+  background-color: #fff;
+  border-color: #828282;
+  &:hover {
+    background-color: #ffe79c;
+    border-color: #c98400;
+  }
+}
+.my-grid {
+  .fa {
+    font-size: 12px; //1rem;
+    color: #000;
+  }
+  .fa-sort-asc,
+  .fa-sort-desc {
+    font-size: 12px; //1rem;
+    padding-left: 5px;
+  }
+
+  .fa-spinner {
+    color: rgba(233, 150, 26, 0.51);
+    animation: rotate 4s linear infinite;
+  }
+  .fa-refresh{
+    color: #23527c;
+    animation:none;
+  }
+  .fa-caret-left,
+  .fa-caret-right,
+  .fa-step-backward,
+  .fa-step-forward {
+    display: inline-block;
+    content: none;
+    line-height: 15px;
+    //1rem;
+    color: #000;
+  }
+
+  .fa-step-backward,
+  .fa-caret-right{
+    padding-right: 4px;
+  }
+  .t-state-disabled {
+    .fa-caret-left,
+    .fa-caret-right,
+    .fa-step-backward,
+    .fa-step-forward {
+      cursor: default;
+      color: #999;
+    }
+  }
+  .fa-caret-left,
+  .fa-caret-right {
+    font-size: 16px;
+  }
+  .fa-step-backward,
+  .fa-step-forward {
+    font-size: 10px;
+    position: relative;
+    //top: 3px;
+  }
+}
+
+/*
+.keyframes(@name) {//keyframes是动画的必须，这里less的好处就体现了，可以写一个keyframes 混入
+    @-webkit-keyframes @name {
+        .-frames(-webkit-)
+    }
+    @-moz-keyframes @name {
+        .-frames(-moz-)
+    }
+    @-o-keyframes @name {
+        .-frames(-o-)
+    }
+    @-ms-keyframes @name {
+        .-frames(-ms-)
+    }
+    @keyframes @name {
+        .-frames()
+    }
+}
+
+.rotate(){//定义旋转动画
+    .keyframes(rotate);
+    .-frames(@-...){
+        0%,100%{
+            @{-}transform:rotate(0deg);
+        }
+        100%{
+            @{-}transform:rotate(360deg);
+        }
+    }
+}
+
+*/
+/*telerik grid
+----------------------------------------------------------------------------*/
+.t-grid-header .t-header .t-link {
+  line-height: 18px;
+  height: auto;
+  display: block;
+  margin: -.3em -.6em;
+  padding: 0.3em 2.4em 0.3em 0.6em;
+  border: 0;
+}
+.t-grid {
+  border-color: #ddd;
+  .glyphicon {
+    //font-size:14px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #28b5c2;
+    &:hover {
+      color: #38dae9;
+      cursor: pointer;
+      //font-size: 16px;
+    }
+    text-decoration: none;
+  }
+  .glyphicon-remove {
+    color: #e80c4d;
+    &:hover {
+      color: #f71054;
+    }
+  }
+  .actionField {
+    .fa {
+      font-size: 16px;
+      color: #28b5c2;
+      cursor: pointer;
+      padding-left: 5px;
+      padding-right: 5px;
+      &:hover {
+        color: #38dae9;
+      }
+    }
+    .file.fa {
+      color: #007ACD;
+      &:hover {
+        color: #259beb;
+      }
+    }
+  }
+}
+.t-header,
+.t-grid-header,
+.t-grid-bottom,
+.t-grid-bottom .t-status {
+  background-color: #f3f3f3;
+  border-color: #ddd;
+}
+.t-grid-header-wrap,
+.t-grid-footer-wrap {
+  border-color: #ddd;
+}
+/*table setting
+----------------------------------------------------------------------------*/
+.grid-link {
+  //color: @text-color;
+  &:hover {
+    //color: @link-color;
+  }
+}
+/*smart-grid
+----------------------------------------------------------------------------*/
+.my-grid {}
+.grid-btn {
+  .fa {
+    color: #ddd;
+  }
+  &.enabled {
+    cursor: pointer;
+    .fa {
+      color: #28b5c2;
+      &:hover {
+        font-size: 22px;
+      }
+    }
+  }
+}
+.t-grid td {
+  padding: 3px;
+  height: auto;
+  word-wrap: break-word;
+}
+.tbview-item {
+  color: #222;
+}
+.smart-grid {
+  .ngViewport {
+    overflow-y: scroll;
+  }
+  .t-pager .t-numeric a:hover {
+    background-color: #ffe79c;
+    border: solid 1px #c98400;
+    padding: 0 4px;
+    line-height: 20px;
+    border-radius: 5px;
+  }
+  .t-pager .t-numeric a.t-state-active:hover {
+    background-color: #fff;
+    border-color: #828282;
+    cursor: default;
+  }
+  .t-grid-header .t-header {
+    padding: 0;
+    &.text-center {
+      text-align: center;
+    }
+  }
+  .t-grid-header .grid-header-text-wrap {
+    width: 100%;
+    display: inline-block;
+    padding: 3px;
+  }
+  .t-grid-header span.sortHeader:hover {
+    background-color: #ffe79c;
+  }
+}
+/* Telerik grid overrides
+------------------------------------------------------------*/
+.t-grid .t-grid-header .t-header .t-link {
+  height: auto;
+}
+.t-grid .t-grid-header .t-header,
+.t-grid .t-grid-header .t-last-header {
+  white-space: normal;
+}

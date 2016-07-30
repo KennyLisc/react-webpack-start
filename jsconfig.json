@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+        "target": "es6",
+        "module": "es2015",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "exclude": [
+        "node_modules",
+        "bower_components",
+        "jspm_packages",
+        "tmp",
+        "temp"
+    ],
+   "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "module": "amd",
+        "target": "ES6"
+    }
+}
