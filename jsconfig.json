@@ -1,21 +1,18 @@
 {
+  "allowJs": true,
   "compilerOptions": {
-        "target": "es6",
-        "module": "es2015",
+        "target": "ES6",
+        "module": "commonjs",
+        "moduleResolution": "node",
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "rootDir": "./src/app"
     },
     "exclude": [
         "node_modules",
-        "bower_components",
-        "jspm_packages",
-        "tmp",
-        "temp"
-    ],
-   "compilerOptions": {
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "module": "amd",
-        "target": "ES6"
-    }
+        "dist",
+        "config",
+        "manifest"
+    ]
 }
